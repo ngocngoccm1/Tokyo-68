@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f6f7fb">
+  <meta name="description" content="TOKYSEN — Asian Kitchen & Sushi in Mahlsdorf. Vollständige Speisekarte und Online-Bestellung.">
+  <title>TOKYSEN — Asian Kitchen & Sushi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a class="logo" href="#top">
+        <span class="logo-mark">T</span>
+        <span>TOKYSEN</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Hauptnavigation">
+        <a href="#top">Home</a>
+        <a href="#categories">Kategorien</a>
+        <a href="#menu">Speisekarte</a>
+        <a href="#about">Über uns</a>
+        <a href="#contact">Kontakt</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="cart-button" type="button" data-open-cart>
+          Bestellung
+          <span data-cart-count>0</span>
+        </button>
+        <a class="primary-button desktop-order" href="#menu">Online bestellen</a>
+        <button class="menu-toggle" id="menuToggle" type="button"
+          aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav>
+      <a href="#top">Home</a>
+      <a href="#categories">Kategorien</a>
+      <a href="#menu">Speisekarte</a>
+      <a href="#about">Über uns</a>
+      <a href="#contact">Kontakt</a>
+    </nav>
+    <button class="primary-button" type="button" data-open-cart>
+      Bestellung ansehen · <span data-cart-count>0</span>
+    </button>
+  </div>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <span class="hero-orb hero-orb--one"></span>
+      <span class="hero-orb hero-orb--two"></span>
+
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="section-kicker">Asian Kitchen & Sushi · Mahlsdorf</p>
+          <h1>
+            <span>Tokyo trifft</span>
+            <strong>Sen.</strong>
+          </h1>
+          <p class="hero-description">
+            Asiatische Küche, Sushi-Handwerk und frische Fruchtideen —
+            familiengeführt, ehrlich zubereitet und direkt online bestellbar.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#menu">Speisekarte entdecken</a>
+            <a class="secondary-button" href="#about">Unsere Geschichte</a>
+          </div>
+
+          <div class="hero-facts">
+            <div><strong>30+</strong><span>Jahre Küche</span></div>
+            <div><strong>20+</strong><span>Jahre Sushi</span></div>
+            <div><strong id="heroDishCount">187</strong><span>Gerichte & Drinks</span></div>
+          </div>
+        </div>
+
+        <div class="hero-collage" aria-label="Tokysen Restaurant und frische Getränke">
+          <figure class="hero-main-photo">
+            <img src="./assets/exterior-front.webp" alt="Außenansicht des Restaurants" fetchpriority="high">
+          </figure>
+          <figure class="hero-small-photo hero-small-photo--cups">
+            <img src="./assets/fruit-cups.webp" alt="Frische Fruchtbecher">
+            <figcaption>Frisch vorbereitet</figcaption>
+          </figure>
+          <figure class="hero-small-photo hero-small-photo--juice">
+            <img src="./assets/juice-line.webp" alt="Bunte Fruchtsäfte">
+          </figure>
+          <span class="hero-sticker">Familienbetrieb<br>in Berlin</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- POPULAR CATEGORIES -->
+    <section class="category-showcase" id="categories">
+      <div class="section-shell">
+        <div class="section-heading-row">
+          <div>
+            <p class="section-kicker">Alles auf einen Blick</p>
+            <h2>Beliebte Kategorien</h2>
+          </div>
+          <div class="slider-buttons">
+            <button type="button" data-category-prev aria-label="Zurück">←</button>
+            <button type="button" data-category-next aria-label="Weiter">→</button>
+          </div>
+        </div>
+
+        <div class="category-carousel" id="categoryCarousel"></div>
+      </div>
+    </section>
+
+    <!-- DOUBLE PROMO -->
+    <section class="promo-pair">
+      <div class="section-shell promo-grid">
+        <article class="promo-card promo-card--berry">
+          <img src="./assets/fruit-cups.webp" alt="Fruchtbecher im Kühlregal">
+          <div class="promo-overlay"></div>
+          <div class="promo-content">
+            <p>Frisch · Fruchtig · To go</p>
+            <h2>Fruchtbecher<br>für 3 €</h2>
+            <a href="#menu" data-preset-search="saft">Jetzt entdecken</a>
+          </div>
+        </article>
+
+        <article class="promo-card promo-card--mango">
+          <img src="./assets/juice-line.webp" alt="Frische Säfte aus bunten Früchten">
+          <div class="promo-overlay"></div>
+          <div class="promo-content">
+            <p>Frische Farben im Glas</p>
+            <h2>Säfte &<br>Schorlen</h2>
+            <a href="#menu" data-open-section="alkoholfreie-getraenke">Getränke ansehen</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <section class="trust-section">
+      <div class="section-shell">
+        <div class="trust-title">
+          <strong>Familienbetrieb</strong>
+          <span></span>
+          <em>Handwerk, Frische und Gastfreundschaft</em>
+        </div>
+        <div class="trust-grid">
+          <div><strong>30+</strong><span>Jahre Erfahrung</span></div>
+          <div><strong>20+</strong><span>Jahre Sushi-Handwerk</span></div>
+          <div><strong>187</strong><span>Gerichte & Getränke</span></div>
+          <div><strong>7</strong><span>große Menübereiche</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FULL BLEED CTA -->
+    <section class="full-bleed-offer">
+      <img src="./assets/exterior-wide.webp" alt="Tokysen Restaurant in Mahlsdorf">
+      <div class="full-bleed-shade"></div>
+      <div class="section-shell full-bleed-copy">
+        <p class="section-kicker section-kicker--yellow">Heute in Mahlsdorf</p>
+        <h2>Frisch zubereitet.<br><span>Direkt für dich.</span></h2>
+        <p>Wähle dein Gericht, passe Zutaten an und sende deine Bestellung in wenigen Schritten.</p>
+        <a class="primary-button primary-button--red" href="#menu">Jetzt bestellen</a>
+      </div>
+    </section>
+
+    <!-- MENU APP -->
+    <section class="menu-section" id="menu">
+      <div class="section-shell">
+        <div class="menu-intro menu-intro--editorial">
+          <div>
+            <p class="section-kicker">Vollständige Speisekarte</p>
+            <h2>Unsere Küche.<br><span>Ohne Umwege.</span></h2>
+          </div>
+          <div class="menu-intro-copy">
+            <p>
+              187 Gerichte und Getränke — klar nach Bereichen geordnet,
+              mit Preisen, Varianten, Portionen und Allergenhinweisen.
+            </p>
+            <button class="menu-allergen-link" type="button" data-open-allergens>
+              Allergene &amp; Zusatzstoffe ansehen <span>↗</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="menu-toolbar">
+          <div class="menu-tabs" id="menuTabs" aria-label="Menübereiche"></div>
+          <label class="menu-search">
+            <span class="sr-only">Gericht suchen</span>
+            <span class="menu-search-icon" aria-hidden="true">⌕</span>
+            <input id="menuSearch" type="search" placeholder="Gericht, Nummer oder Zutat suchen" autocomplete="off">
+            <button id="clearSearch" type="button" hidden aria-label="Suche löschen">×</button>
+          </label>
+        </div>
+
+        <div class="menu-layout">
+          <aside class="menu-sidebar" aria-label="Menübereiche">
+            <div class="menu-sidebar-sticky">
+              <p class="menu-sidebar-label">Menübereiche</p>
+              <nav class="menu-sidebar-tabs" id="menuSidebarTabs"></nav>
+              <button class="menu-sidebar-allergen" type="button" data-open-allergens>
+                <span>i</span>
+                Allergene &amp;<br>Zusatzstoffe
+              </button>
+            </div>
+          </aside>
+
+          <div class="menu-content">
+            <div class="menu-result-bar">
+              <p id="menuResultCount">Speisekarte wird geladen …</p>
+              <span>Alle Preise in Euro · inkl. MwSt.</span>
+            </div>
+            <div class="menu-groups" id="menuGrid" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRENDING COMBO -->
+    <section class="combo-section">
+      <div class="section-shell combo-grid">
+        <div class="combo-copy">
+          <p class="section-kicker">Frisch, bunt und direkt</p>
+          <h2>Fruit & Drink<br>Combo</h2>
+          <p>
+            Fruchtbecher, Säfte, Kaffee und alkoholfreie Getränke als frische
+            Ergänzung zu Sushi, Curry und Wok-Gerichten.
+          </p>
+
+          <div class="combo-tabs">
+            <button class="active" type="button" data-combo-image="fruit-cups.webp">
+              <span>01</span><strong>Fruchtbecher</strong><small>frisch gekühlt</small>
+            </button>
+            <button type="button" data-combo-image="juice-line.webp">
+              <span>02</span><strong>Säfte & Schorlen</strong><small>bunt und erfrischend</small>
+            </button>
+            <button type="button" data-combo-image="orange-press.webp">
+              <span>03</span><strong>Frisch gepresst</strong><small>direkt vor Ort</small>
+            </button>
+          </div>
+        </div>
+
+        <figure class="combo-image">
+          <img id="comboImage" src="./assets/fruit-cups.webp" alt="Frische Tokysen Getränke und Früchte">
+        </figure>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div>
+        TOKYSEN · SUSHI · CURRY · BOWLS · WOK · FRUCHT · SÄFTE ·
+        TOKYSEN · SUSHI · CURRY · BOWLS · WOK · FRUCHT · SÄFTE ·
+      </div>
+    </div>
+
+    <!-- FEATURES -->
+    <section class="feature-strip">
+      <div class="section-shell feature-grid">
+        <article><span>01</span><h3>Familienrezepte</h3><p>Seit über 30 Jahren mit Erfahrung und persönlicher Handschrift.</p></article>
+        <article><span>02</span><h3>Sushi-Handwerk</h3><p>Mehr als 20 Jahre Präzision, Frische und sorgfältige Zubereitung.</p></article>
+        <article><span>03</span><h3>Direkt bestellen</h3><p>Optionen auswählen, Notiz ergänzen und Bestellung absenden.</p></article>
+        <article><span>04</span><h3>Frisch vor Ort</h3><p>Ob Sushi, Curry, Saft oder Fruchtbecher — frisch vorbereitet.</p></article>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about-section" id="about">
+      <div class="section-shell about-grid">
+        <div class="about-image-wrap">
+          <img src="./assets/exterior-front.webp" alt="Tokysen Restaurant und Außenbereich">
+          <span class="about-badge">30+<small>Jahre</small></span>
+        </div>
+
+        <div class="about-copy">
+          <p class="section-kicker">Willkommen bei Tokysen</p>
+          <h2>Qualität trifft<br><span>Gastfreundschaft.</span></h2>
+          <div id="restaurantIntroduction"></div>
+
+          <div class="about-points">
+            <div><strong>Tokyo</strong><span>Präzision und Sushi-Handwerk</span></div>
+            <div><strong>Sen</strong><span>Lotus, Harmonie und Neubeginn</span></div>
+          </div>
+
+          <a class="primary-button" href="#contact">Besuche uns</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TWO SPECIAL BANNERS -->
+    <section class="special-banners">
+      <div class="section-shell special-grid">
+        <article>
+          <img src="./assets/fruit-art.webp" alt="Kreativ angerichtete Obstplatten">
+          <div>
+            <p>Für besondere Momente</p>
+            <h2>Fruit Art<br>Platten</h2>
+            <a href="#contact">Anfragen</a>
+          </div>
+        </article>
+
+        <article>
+          <img src="./assets/fruit-mosaic.webp" alt="Bunte Auswahl frischer Früchte">
+          <div>
+            <p>Natürlich farbenfroh</p>
+            <h2>Frische<br>Vielfalt</h2>
+            <a href="#menu" data-open-section="desserts">Desserts ansehen</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SPECIAL PRODUCT -->
+    <section class="special-product">
+      <div class="special-product-image">
+        <img src="./assets/fruit-platter.webp" alt="Große bunte Fruchtplatte">
+      </div>
+      <div class="special-product-copy">
+        <p class="section-kicker">Tokysen Fresh</p>
+        <h2>Fruchtplatten<br>& frische Cups</h2>
+        <p>
+          Bunte Früchte, sauber geschnitten und bereit zum Genießen.
+          Frag uns nach verfügbaren Größen und individuellen Platten.
+        </p>
+        <div class="special-price"><strong>3 €</strong><span>Fruchtbecher vor Ort</span></div>
+        <a class="primary-button primary-button--green" href="#contact">Jetzt anfragen</a>
+      </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section class="testimonial-section">
+      <div class="section-shell testimonial">
+        <p class="section-kicker">Tokysen Gefühl</p>
+        <blockquote>
+          “Ein Ort zum Ankommen, Genießen und Wohlfühlen —
+          mit Gerichten, die Erfahrung und echte Handarbeit zeigen.”
+        </blockquote>
+        <div class="stars">★★★★★</div>
+        <strong>Familiengeführt in Mahlsdorf</strong>
+      </div>
+    </section>
+
+    <!-- ORDER CTA -->
+    <section class="order-cta">
+      <div class="section-shell order-cta-inner">
+        <div>
+          <p class="section-kicker section-kicker--yellow">Schnell ausgewählt</p>
+          <h2>Deine Bestellung<br>in wenigen Schritten.</h2>
+          <button class="white-button" type="button" data-open-cart>Bestellung ansehen</button>
+        </div>
+        <img src="./assets/fruit-cups.webp" alt="Fruchtbecher zur Abholung">
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery-strip" aria-label="Tokysen Galerie">
+      <img src="./assets/juice-line.webp" alt="Frische Säfte">
+      <img src="./assets/fruit-art.webp" alt="Obstkunst">
+      <img src="./assets/exterior-front.webp" alt="Restaurant">
+      <img src="./assets/fruit-platter.webp" alt="Fruchtplatte">
+      <img src="./assets/orange-press.webp" alt="Orangenpresse">
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+      <div class="section-shell contact-grid">
+        <div>
+          <p class="section-kicker">Kontakt & Abholung</p>
+          <h2>Wir freuen uns<br>auf deinen Besuch.</h2>
+        </div>
+        <dl>
+          <div><dt>Adresse</dt><dd id="addressText">[ADRESSE]</dd></div>
+          <div><dt>Telefon</dt><dd id="phoneText">[TELEFON]</dd></div>
+          <div><dt>Öffnungszeiten</dt><dd id="hoursText">[ÖFFNUNGSZEITEN]</dd></div>
+        </dl>
+        <div class="contact-actions">
+          <a class="primary-button" id="mapsLink" href="#">Route planen</a>
+          <a class="secondary-button" id="reservationLink" href="#">Tisch reservieren</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="section-shell footer-grid">
+      <div>
+        <a class="footer-logo" href="#top">TOKYSEN</a>
+        <p>Asian Kitchen & Sushi · Mahlsdorf</p>
+      </div>
+      <nav>
+        <a href="#menu">Speisekarte</a>
+        <a href="#about">Über uns</a>
+        <a href="#contact">Kontakt</a>
+      </nav>
+      <nav>
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+        <a href="#allergenDialog">Allergene</a>
+      </nav>
+      <p id="footerMessage"></p>
+    </div>
+  </footer>
+
+  <!-- FLOATING CART -->
+  <button class="floating-cart" id="floatingCart" type="button" data-open-cart>
+    <span class="floating-cart-count" data-cart-count>0</span>
+    <span><strong>Bestellung ansehen</strong><small data-cart-label>0 Artikel</small></span>
+    <b data-cart-total>0,00 €</b>
+  </button>
+
+  <!-- BACKDROP -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- ITEM MODAL -->
+  <section class="item-modal" id="itemModal" aria-hidden="true">
+    <button class="modal-close" type="button" data-close-item aria-label="Schließen">×</button>
+    <p class="modal-kicker" id="modalCode"></p>
+    <h2 id="modalName"></h2>
+    <p class="modal-description" id="modalDescription"></p>
+    <div class="modal-meta" id="modalMeta"></div>
+
+    <form id="itemForm">
+      <div id="modalOptions"></div>
+      <label class="field">
+        <span>Menge</span>
+        <select id="modalQuantity">
+          <option>1</option><option>2</option><option>3</option><option>4</option>
+          <option>5</option><option>6</option><option>7</option><option>8</option>
+          <option>9</option><option>10</option>
+        </select>
+      </label>
+      <label class="field">
+        <span>Hinweis für die Küche</span>
+        <textarea id="modalNote" placeholder="Zum Beispiel: ohne Zwiebeln"></textarea>
+      </label>
+      <div class="modal-submit">
+        <strong id="modalTotal">0,00 €</strong>
+        <button class="primary-button primary-button--red" type="submit">Hinzufügen</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- CART DRAWER -->
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+    <header>
+      <div><p>Tokysen</p><h2>Deine Bestellung</h2></div>
+      <button type="button" data-close-cart aria-label="Schließen">×</button>
+    </header>
+    <div class="cart-body" id="cartBody"></div>
+  </aside>
+
+  <!-- CHECKOUT -->
+  <section class="checkout" id="checkout" aria-hidden="true">
+    <header>
+      <button type="button" data-close-checkout>← Zurück</button>
+      <strong>TOKYSEN BESTELLUNG</strong>
+      <span data-cart-total>0,00 €</span>
+    </header>
+    <div class="checkout-shell">
+      <div>
+        <p class="section-kicker">Fast geschafft</p>
+        <h2>Bestellung abschließen</h2>
+
+        <form id="checkoutForm">
+          <div class="service-tabs">
+            <button class="active" type="button" data-service="pickup">Abholung</button>
+            <button type="button" data-service="delivery">Lieferung</button>
+          </div>
+
+          <div class="form-grid">
+            <label class="field"><span>Name *</span><input name="name" required autocomplete="name"></label>
+            <label class="field"><span>Telefon *</span><input name="phone" required autocomplete="tel"></label>
+            <label class="field full"><span>E-Mail</span><input name="email" type="email" autocomplete="email"></label>
+            <label class="field full" id="deliveryAddressField" hidden>
+              <span>Lieferadresse *</span><input id="deliveryAddress" name="address" autocomplete="street-address">
+            </label>
+            <label class="field">
+              <span>Gewünschte Zeit</span>
+              <select name="time">
+                <option value="So schnell wie möglich">So schnell wie möglich</option>
+                <option value="In 30 Minuten">In 30 Minuten</option>
+                <option value="In 45 Minuten">In 45 Minuten</option>
+                <option value="In 60 Minuten">In 60 Minuten</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Zahlungsart</span>
+              <select name="payment">
+                <option>Bar bei Übergabe</option>
+                <option>Karte bei Übergabe</option>
+              </select>
+            </label>
+            <label class="field full">
+              <span>Bestellhinweis</span>
+              <textarea name="note" placeholder="Klingel, Etage oder weitere Hinweise"></textarea>
+            </label>
+          </div>
+
+          <label class="legal-check">
+            <input type="checkbox" required>
+            <span>Ich habe Preise, Optionen und Allergenhinweise geprüft und möchte die Bestellung verbindlich senden.</span>
+          </label>
+          <button class="primary-button primary-button--red checkout-submit" type="submit">
+            Bestellung senden
+          </button>
+        </form>
+      </div>
+
+      <aside class="checkout-summary">
+        <h3>Bestellübersicht</h3>
+        <div id="checkoutItems"></div>
+        <div id="checkoutTotals"></div>
+      </aside>
+    </div>
+    <div class="checkout-result" id="checkoutResult" hidden></div>
+  </section>
+
+  <!-- ALLERGEN DIALOG -->
+  <dialog id="allergenDialog">
+    <button class="dialog-close" type="button" onclick="this.closest('dialog').close()">×</button>
+    <h2>Allergene & Zusatzstoffe</h2>
+    <p id="allergenNotice"></p>
+    <div class="allergen-grid" id="allergenGrid"></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="./config.js"></script>
+  <script src="./menu-data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
