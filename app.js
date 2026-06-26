@@ -149,13 +149,13 @@
 
   function categoryImage(sectionId, index) {
     const map = {
-      "vorspeisen": "fruit-platter.webp",
-      "hauptgerichte": "exterior-front.webp",
-      "sushi": "fruit-art.webp",
+      "vorspeisen": "VORSPEISEN.jpg",
+      "hauptgerichte": "HAUPTGERICHTE.jpg",
+      "sushi": "SUSHI.webp",
       "beilagen": "fruit-mosaic.webp",
       "desserts": "fruit-platter.webp",
       "alkoholfreie-getraenke": "juice-line.webp",
-      "alkoholische-getraenke": "orange-press.webp"
+      "alkoholische-getraenke": "ALKOHOLISCHE GETRÄNKE.webp"
     };
     return map[sectionId] || ["fruit-cups.webp", "juice-line.webp", "fruit-art.webp"][index % 3];
   }
