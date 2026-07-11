@@ -3,11 +3,11 @@
 
   const menu = window.TOKYSEN_MENU;
   const config = Object.assign({
-    address: "[ADRESSE]",
-    phone: "[TELEFON]",
-    openingHours: "[ÖFFNUNGSZEITEN]",
-    mapsUrl: "#",
-    reservationUrl: "#",
+    address: "Laubanger 33, 96103 Hallstadt",
+    phone: "0951 / 700 92 272",
+    openingHours: "Mo.-Sa. 11:00-20:00 Uhr | So. Ruhetag",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Laubanger%2033%2C%2096103%20Hallstadt",
+    reservationUrl: "tel:+4995170092272",
     whatsappNumber: "",
     pickupMinutes: 25,
     deliveryMinutes: 45,
@@ -16,7 +16,7 @@
     freeDeliveryFrom: 45
   }, window.TOKYSEN_CONFIG || {});
 
-  const STORAGE_KEY = "tokysen-figma-cart";
+  const STORAGE_KEY = "tokyo68-cart";
   const state = {
     topSections: [],
     items: [],
@@ -28,40 +28,20 @@
     service: "pickup"
   };
   const SECTION_META = {
-    "vorspeisen": {
+    "suppen-vorspeisen": {
       index: "01",
       eyebrow: "Der erste Eindruck",
-      description: "Suppen, Salate und kleine Gerichte zum Ankommen."
+      description: "Suppen und Vorspeisen zum Ankommen."
     },
-    "hauptgerichte": {
+    "warmspeisen": {
       index: "02",
       eyebrow: "Aus Wok & Küche",
-      description: "Nudeln, Reis und kräftige Hauptgerichte, frisch zubereitet."
+      description: "Vietnamesische Nudeln, Reisgerichte und Wok-Gemüse."
     },
     "sushi": {
       index: "03",
-      eyebrow: "20+ Jahre Handwerk",
-      description: "Nigiri, Maki, Inside-Out, Spezial Rolls, Sashimi und Sets."
-    },
-    "beilagen": {
-      index: "04",
-      eyebrow: "Dazu bestellt",
-      description: "Kleine Ergänzungen, Saucen und Extras für dein Gericht."
-    },
-    "desserts": {
-      index: "05",
-      eyebrow: "Zum Abschluss",
-      description: "Süße Kleinigkeiten und ein frischer letzter Eindruck."
-    },
-    "alkoholfreie-getraenke": {
-      index: "06",
-      eyebrow: "Frisch eingeschenkt",
-      description: "Softdrinks, Säfte, Tee, Kaffee, Lassi und Hausgemachtes."
-    },
-    "alkoholische-getraenke": {
-      index: "07",
-      eyebrow: "Für den Abend",
-      description: "Cocktails, Bier, Aperitifs und ausgewählte Weine."
+      eyebrow: "Sushi frisch gerollt",
+      description: "Nigiri, Maki, Uramaki, Special Rolls, Sashimi und Menüs."
     }
   };
 
@@ -149,13 +129,9 @@
 
   function categoryImage(sectionId, index) {
     const map = {
-      "vorspeisen": "VORSPEISEN.jpg",
-      "hauptgerichte": "HAUPTGERICHTE.jpg",
-      "sushi": "SUSHI.webp",
-      "beilagen": "fruit-mosaic.webp",
-      "desserts": "fruit-platter.webp",
-      "alkoholfreie-getraenke": "juice-line.webp",
-      "alkoholische-getraenke": "ALKOHOLISCHE GETRÄNKE.webp"
+      "suppen-vorspeisen": "VORSPEISEN.jpg",
+      "warmspeisen": "HAUPTGERICHTE.jpg",
+      "sushi": "SUSHI.webp"
     };
     return map[sectionId] || ["fruit-cups.webp", "juice-line.webp", "fruit-art.webp"][index % 3];
   }
@@ -175,7 +151,7 @@
   function sectionMeta(sectionId) {
     return SECTION_META[sectionId] || {
       index: "—",
-      eyebrow: "Tokysen Speisekarte",
+      eyebrow: "TOKYO68 Speisekarte",
       description: "Frisch zubereitet und direkt bestellbar."
     };
   }
@@ -234,7 +210,7 @@
 
   function itemBadge(item) {
     const haystack = `${item.name} ${item.description} ${item.note}`.toLocaleLowerCase("de-DE");
-    if (haystack.includes("tokysen")) return "TOKYSEN EMPFIEHLT";
+    if (haystack.includes("tokyo68")) return "TOKYO68 EMPFIEHLT";
     if (haystack.includes("vegan")) return "VEGAN";
     if (haystack.includes("vegetar")) return "VEGETARISCH";
     if (haystack.includes("scharf") || haystack.includes("chili")) return "SCHARF";
@@ -602,7 +578,7 @@
 
   function orderMessage(data, ref) {
     return [
-      `TOKYSEN BESTELLUNG ${ref}`,
+      `TOKYO68 BESTELLUNG ${ref}`,
       "",
       `Service: ${state.service === "delivery" ? "Lieferung" : "Abholung"}`,
       `Name: ${data.name}`,
@@ -641,7 +617,7 @@
     event.preventDefault();
     const data = Object.fromEntries(new FormData(event.currentTarget).entries());
     const date = new Date();
-    const ref = `TKY-${date.getFullYear()}${String(date.getMonth()+1).padStart(2,"0")}${String(date.getDate()).padStart(2,"0")}-${String(date.getHours()).padStart(2,"0")}${String(date.getMinutes()).padStart(2,"0")}`;
+    const ref = `T68-${date.getFullYear()}${String(date.getMonth()+1).padStart(2,"0")}${String(date.getDate()).padStart(2,"0")}-${String(date.getHours()).padStart(2,"0")}${String(date.getMinutes()).padStart(2,"0")}`;
     const message = orderMessage(data, ref);
     const numberValue = String(config.whatsappNumber || "").replace(/\D/g, "");
 
