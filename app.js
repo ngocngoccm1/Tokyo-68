@@ -44,6 +44,13 @@
       description: "Nigiri, Maki, Uramaki, Special Rolls, Sashimi und Menüs."
     }
   };
+  const MENU_IMAGE_BY_CODE = {
+    "1": "dish-01-cutout.png",
+    "2": "dish-02-cutout.png",
+    "3": "dish-03-cutout.png",
+    "7": "dish-04-cutout.png",
+    "20j": "dish-07-cutout.png"
+  };
 
   const $ = id => document.getElementById(id);
   const el = {};
@@ -83,9 +90,7 @@
         const categoryId = slug(category.id || category.title || `category-${categoryIndex}`);
         const items = (category.items || []).map((item, itemIndex) => {
           const id = `${sectionId}-${categoryId}-${item.id || item.code || itemIndex}`;
-          const image = itemCount < 40
-            ? `dish-${String(itemCount + 1).padStart(2, "0")}-cutout.png`
-            : "";
+          const image = MENU_IMAGE_BY_CODE[item.code] || "";
           const options = Array.isArray(item.options) ? item.options.map((option, optionIndex) => ({
             id: String(option.code || option.id || optionIndex),
             label: option.name || option.volume || option.size || `Option ${optionIndex + 1}`,
