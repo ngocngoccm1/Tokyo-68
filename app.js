@@ -83,6 +83,9 @@
         const categoryId = slug(category.id || category.title || `category-${categoryIndex}`);
         const items = (category.items || []).map((item, itemIndex) => {
           const id = `${sectionId}-${categoryId}-${item.id || item.code || itemIndex}`;
+          const image = itemCount < 40
+            ? `dish-${String(itemCount + 1).padStart(2, "0")}-cutout.png`
+            : "";
           const options = Array.isArray(item.options) ? item.options.map((option, optionIndex) => ({
             id: String(option.code || option.id || optionIndex),
             label: option.name || option.volume || option.size || `Option ${optionIndex + 1}`,
@@ -100,6 +103,7 @@
             description: item.description || "",
             portion: item.portion || category.portion || "",
             note: item.note || "",
+            image,
             allergens: Array.isArray(item.allergens) ? item.allergens : [],
             price: number(item.price),
             options,
@@ -230,8 +234,9 @@
     ].filter(Boolean);
 
     return `
-      <article class="menu-line-item">
+      <article class="menu-line-item${item.image ? " has-menu-image" : ""}">
         <div class="menu-line-code">${esc(item.code || "—")}</div>
+        ${item.image ? `<img class="menu-line-image" src="./assets/${esc(item.image)}" alt="${esc(item.name)}" loading="lazy">` : ""}
         <div class="menu-line-copy">
           <div class="menu-line-heading">
             <h5>${esc(item.name)}</h5>
