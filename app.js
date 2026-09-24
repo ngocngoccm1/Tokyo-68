@@ -45,7 +45,31 @@
     }
   };
   const MENU_IMAGE_BY_CODE = {
-    "1": "dish-01-cutout.png"
+    "1": "dish-01-cutout.png",
+    "12b": "dish-05-cutout.png",
+    "16f": "dish-06-cutout.png",
+    "20j": "dish-07-cutout.png",
+    "21a": "dish-08-cutout.png",
+    "25e": "dish-10-cutout.png",
+    "26f": "dish-11-cutout.png",
+    "29i": "dish-12-cutout.png",
+    "31a": "dish-13-cutout.png",
+    "32b": "dish-14-cutout.png",
+    "41a": "dish-16-cutout.png",
+    "42b": "dish-17-cutout.png",
+    "44d": "dish-18-cutout.png",
+    "45e": "dish-19-cutout.png",
+    "51a": "dish-20-cutout.png",
+    "52b": "dish-21-cutout.png",
+    "54d": "dish-23-cutout.png",
+    "57g": "dish-24-cutout.png",
+    "56f": "dish-25-cutout.png",
+    "59i": "dish-26-cutout.png",
+    "66f": "dish-27-cutout.png",
+    "62b": "dish-29-cutout.png",
+    "71a": "dish-32-cutout.png",
+    "78h": "dish-36-cutout.png",
+    "74d": "dish-37-cutout.png"
   };
 
   const $ = id => document.getElementById(id);
