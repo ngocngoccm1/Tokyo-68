@@ -45,11 +45,7 @@
     }
   };
   const MENU_IMAGE_BY_CODE = {
-    "1": "dish-01-cutout.png",
-    "2": "dish-02-cutout.png",
-    "3": "dish-03-cutout.png",
-    "7": "dish-04-cutout.png",
-    "20j": "dish-07-cutout.png"
+    "1": "dish-01-cutout.png"
   };
 
   const $ = id => document.getElementById(id);
