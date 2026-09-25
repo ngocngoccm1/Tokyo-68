@@ -16,7 +16,12 @@
     freeDeliveryFrom: 45
   }, window.TOKYSEN_CONFIG || {});
 
-  const STORAGE_KEY = "tokyo68-cart";
+  const STORAGE_KEY = "tokyo68-menu-cart-v2";
+  const SITE_INTRODUCTION = [
+    "TOKYO68 in Hallstadt serviert asiatische Küche, vietnamesische Warmspeisen und Sushi frisch zubereitet.",
+    "Die Speisekarte umfasst Suppen, Salate, Nudel-, Reis- und Wokgerichte sowie Nigiri, Maki, Inside-Out Rolls, Sashimi, Desserts und Getränke.",
+    "Bestellen Sie direkt zur Abholung und sprechen Sie uns bei Fragen zu Zutaten, Allergenen oder individuellen Wünschen gerne an."
+  ];
   const state = {
     topSections: [],
     items: [],
@@ -28,49 +33,45 @@
     service: "pickup"
   };
   const SECTION_META = {
-    "suppen-vorspeisen": {
+    "vorspeisen": {
       index: "01",
       eyebrow: "Der erste Eindruck",
-      description: "Suppen und Vorspeisen zum Ankommen."
+      description: "Suppen, Salate und kleine Gerichte zum Ankommen."
     },
-    "warmspeisen": {
+    "hauptgerichte": {
       index: "02",
       eyebrow: "Aus Wok & Küche",
-      description: "Vietnamesische Nudeln, Reisgerichte und Wok-Gemüse."
+      description: "Nudeln, Reis und kräftige Hauptgerichte, frisch zubereitet."
     },
     "sushi": {
       index: "03",
-      eyebrow: "Sushi frisch gerollt",
-      description: "Nigiri, Maki, Uramaki, Special Rolls, Sashimi und Menüs."
+      eyebrow: "20+ Jahre Handwerk",
+      description: "Nigiri, Maki, Inside-Out, Spezial Rolls, Sashimi und Sets."
+    },
+    "beilagen": {
+      index: "04",
+      eyebrow: "Dazu bestellt",
+      description: "Reis, Nudeln, Gemüse, Tofu, Fleisch und Fisch als Beilage."
+    },
+    "desserts": {
+      index: "05",
+      eyebrow: "Zum Abschluss",
+      description: "Vietnamesische und japanische Desserts."
+    },
+    "alkoholfreie-getraenke": {
+      index: "06",
+      eyebrow: "Frisch eingeschenkt",
+      description: "Softdrinks, Säfte, Tee, Kaffee, Lassi und Hausgemachtes."
+    },
+    "alkoholische-getraenke": {
+      index: "07",
+      eyebrow: "Für den Abend",
+      description: "Cocktails, Bier, Aperitifs sowie Weiß- und Rotweine."
     }
   };
-  const MENU_IMAGE_BY_CODE = {
-    "1": "dish-01-cutout.png",
-    "12b": "dish-05-cutout.png",
-    "16f": "dish-06-cutout.png",
-    "20j": "dish-07-cutout.png",
-    "21a": "dish-08-cutout.png",
-    "25e": "dish-10-cutout.png",
-    "26f": "dish-11-cutout.png",
-    "29i": "dish-12-cutout.png",
-    "31a": "dish-13-cutout.png",
-    "32b": "dish-14-cutout.png",
-    "41a": "dish-16-cutout.png",
-    "42b": "dish-17-cutout.png",
-    "44d": "dish-18-cutout.png",
-    "45e": "dish-19-cutout.png",
-    "51a": "dish-20-cutout.png",
-    "52b": "dish-21-cutout.png",
-    "54d": "dish-23-cutout.png",
-    "57g": "dish-24-cutout.png",
-    "56f": "dish-25-cutout.png",
-    "59i": "dish-26-cutout.png",
-    "66f": "dish-27-cutout.png",
-    "62b": "dish-29-cutout.png",
-    "71a": "dish-32-cutout.png",
-    "78h": "dish-36-cutout.png",
-    "74d": "dish-37-cutout.png"
-  };
+  // The available dish thumbnails were labelled for the previous menu codes.
+  // Keep the supplied Pages menu authoritative instead of showing mismatched food.
+  const MENU_IMAGE_BY_CODE = {};
 
   const $ = id => document.getElementById(id);
   const el = {};
@@ -158,9 +159,13 @@
 
   function categoryImage(sectionId, index) {
     const map = {
-      "suppen-vorspeisen": "VORSPEISEN.jpg",
-      "warmspeisen": "HAUPTGERICHTE.jpg",
-      "sushi": "SUSHI.webp"
+      "vorspeisen": "VORSPEISEN.jpg",
+      "hauptgerichte": "HAUPTGERICHTE.jpg",
+      "sushi": "SUSHI.webp",
+      "beilagen": "fruit-mosaic.webp",
+      "desserts": "fruit-platter.webp",
+      "alkoholfreie-getraenke": "juice-line.webp",
+      "alkoholische-getraenke": "ALKOHOLISCHE GETRÄNKE.webp"
     };
     return map[sectionId] || ["fruit-cups.webp", "juice-line.webp", "fruit-art.webp"][index % 3];
   }
@@ -179,8 +184,8 @@
 
   function sectionMeta(sectionId) {
     return SECTION_META[sectionId] || {
-      index: "—",
-      eyebrow: "TOKYO68 Speisekarte",
+      index: "00",
+      eyebrow: "Speisekarte",
       description: "Frisch zubereitet und direkt bestellbar."
     };
   }
@@ -239,7 +244,7 @@
 
   function itemBadge(item) {
     const haystack = `${item.name} ${item.description} ${item.note}`.toLocaleLowerCase("de-DE");
-    if (haystack.includes("tokyo68")) return "TOKYO68 EMPFIEHLT";
+    if (haystack.includes("tokysen")) return "TOKYSEN EMPFIEHLT";
     if (haystack.includes("vegan")) return "VEGAN";
     if (haystack.includes("vegetar")) return "VEGETARISCH";
     if (haystack.includes("scharf") || haystack.includes("chili")) return "SCHARF";
@@ -260,7 +265,7 @@
 
     return `
       <article class="menu-line-item${item.image ? " has-menu-image" : ""}">
-        <div class="menu-line-code">${esc(item.code || "—")}</div>
+        <div class="menu-line-code">${esc(item.code || "")}</div>
         ${item.image ? `<img class="menu-line-image" src="./assets/${esc(item.image)}" alt="${esc(item.name)}" loading="lazy">` : ""}
         <div class="menu-line-copy">
           <div class="menu-line-heading">
@@ -357,8 +362,7 @@
   }
 
   function renderRestaurantData() {
-    const intro = menu.restaurant?.introduction || [];
-    $("restaurantIntroduction").innerHTML = intro.map(text => `<p>${esc(text)}</p>`).join("");
+    $("restaurantIntroduction").innerHTML = SITE_INTRODUCTION.map(text => `<p>${esc(text)}</p>`).join("");
     $("addressText").textContent = config.address;
     $("phoneText").textContent = config.phone;
     $("hoursText").textContent = config.openingHours;
@@ -620,7 +624,7 @@
       "",
       "ARTIKEL:",
       ...state.cart.flatMap(entry => [
-        `${entry.quantity}x ${entry.name}${entry.option ? ` — ${entry.option.label}` : ""} (${euro(entry.quantity * entry.unitPrice)})`,
+        `${entry.quantity}x ${entry.name}${entry.option ? ` - ${entry.option.label}` : ""} (${euro(entry.quantity * entry.unitPrice)})`,
         entry.note ? `  Küchenhinweis: ${entry.note}` : ""
       ]),
       "",

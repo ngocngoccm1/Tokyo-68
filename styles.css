@@ -146,7 +146,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 .full-bleed-copy h2 span{color:var(--yellow)}
 .full-bleed-copy p:not(.section-kicker){max-width:520px;margin:22px 0 28px;color:rgba(255,255,255,.75);line-height:1.7}
 
-/* menu — image-free editorial system */
+/* menu - image-free editorial system */
 .menu-section{padding:120px 0 135px;background:#f4f1ea}
 .menu-intro--editorial{display:grid;gap:30px;align-items:end;padding-bottom:42px;border-bottom:1px solid rgba(32,33,32,.2)}
 .menu-intro--editorial h2{margin:0;font:700 clamp(54px,8vw,102px)/.9 var(--heading);letter-spacing:-.035em;text-transform:uppercase}
