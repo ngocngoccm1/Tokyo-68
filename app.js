@@ -69,9 +69,19 @@
       description: "Cocktails, Bier, Aperitifs sowie Weiß- und Rotweine."
     }
   };
-  // The available dish thumbnails were labelled for the previous menu codes.
-  // Keep the supplied Pages menu authoritative instead of showing mismatched food.
-  const MENU_IMAGE_BY_CODE = {};
+  const MENU_IMAGE_BY_CODE = {
+    "1": "dish-01-cutout.png",
+    "2": "dish-02-cutout.png",
+    "3": "dish-03-cutout.png",
+    "7": "dish-04-cutout.png",
+    "20b": "dish-05-cutout.png",
+    "20f": "dish-06-cutout.png",
+    "30a": "dish-08-cutout.png",
+    "30b": "dish-09-cutout.png",
+    "30d": "dish-09-cutout.png",
+    "30e": "dish-10-cutout.png",
+    "30f": "dish-11-cutout.png"
+  };
 
   const $ = id => document.getElementById(id);
   const el = {};
@@ -111,12 +121,15 @@
         const categoryId = slug(category.id || category.title || `category-${categoryIndex}`);
         const items = (category.items || []).map((item, itemIndex) => {
           const id = `${sectionId}-${categoryId}-${item.id || item.code || itemIndex}`;
-          const image = MENU_IMAGE_BY_CODE[item.code] || "";
           const options = Array.isArray(item.options) ? item.options.map((option, optionIndex) => ({
             id: String(option.code || option.id || optionIndex),
             label: option.name || option.volume || option.size || `Option ${optionIndex + 1}`,
-            price: number(option.price) || 0
+            price: number(option.price) || 0,
+            image: MENU_IMAGE_BY_CODE[`${item.code}${String(option.code || "").toLowerCase()}`] || ""
           })) : [];
+          const representativeOption = options.find(option => option.image);
+          const image = MENU_IMAGE_BY_CODE[String(item.code || "").toLowerCase()]
+            || representativeOption?.image || "";
           const normalized = {
             id,
             sectionId,
@@ -130,6 +143,8 @@
             portion: item.portion || category.portion || "",
             note: item.note || "",
             image,
+            imageAlt: representativeOption && !MENU_IMAGE_BY_CODE[String(item.code || "").toLowerCase()]
+              ? `${item.name} – ${representativeOption.label}` : item.name,
             allergens: Array.isArray(item.allergens) ? item.allergens : [],
             price: number(item.price),
             options,
@@ -266,7 +281,7 @@
     return `
       <article class="menu-line-item${item.image ? " has-menu-image" : ""}">
         <div class="menu-line-code">${esc(item.code || "")}</div>
-        ${item.image ? `<img class="menu-line-image" src="./assets/${esc(item.image)}" alt="${esc(item.name)}" loading="lazy">` : ""}
+        ${item.image ? `<img class="menu-line-image" src="./assets/${esc(item.image)}" alt="${esc(item.imageAlt)}" loading="lazy">` : ""}
         <div class="menu-line-copy">
           <div class="menu-line-heading">
             <h5>${esc(item.name)}</h5>
@@ -406,12 +421,14 @@
     ].filter(Boolean).join(" · ");
     $("modalQuantity").value = "1";
     $("modalNote").value = "";
+    const hasOptionImages = item.options.some(option => option.image);
     $("modalOptions").innerHTML = item.options.length ? `
-      <div class="option-list">
+      <div class="option-list${hasOptionImages ? " has-option-images" : ""}">
         ${item.options.map((option, index) => `
           <label class="option-choice">
             <input type="radio" name="dishOption" value="${esc(option.id)}" ${index === 0 ? "checked" : ""}>
-            <span>${esc(option.label)}</span>
+            ${hasOptionImages ? `<span class="option-image-slot">${option.image ? `<img src="./assets/${esc(option.image)}" alt="" loading="lazy">` : ""}</span>` : ""}
+            <span class="option-choice-name">${option.image ? `<small>${esc(item.code)}${esc(option.id.toLowerCase())}</small>` : ""}${esc(option.label)}</span>
             <strong>${euro(option.price)}</strong>
           </label>
         `).join("")}
