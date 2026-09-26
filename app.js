@@ -123,6 +123,7 @@
           const id = `${sectionId}-${categoryId}-${item.id || item.code || itemIndex}`;
           const options = Array.isArray(item.options) ? item.options.map((option, optionIndex) => ({
             id: String(option.code || option.id || optionIndex),
+            code: option.code ? `${item.code}${String(option.code).toUpperCase()}` : "",
             label: option.name || option.volume || option.size || `Option ${optionIndex + 1}`,
             price: number(option.price) || 0,
             image: MENU_IMAGE_BY_CODE[`${item.code}${String(option.code || "").toLowerCase()}`] || ""
@@ -152,7 +153,7 @@
               item.code, item.name, item.description, item.portion,
               category.title, section.title,
               ...(item.allergens || []),
-              ...options.map(option => option.label)
+              ...options.flatMap(option => [option.code, option.label])
             ].filter(Boolean).join(" ").toLocaleLowerCase("de-DE")
           };
           state.items.push(normalized);
@@ -297,6 +298,13 @@
             <span aria-hidden="true">+</span>
           </button>
         </div>
+        ${item.options.length ? `<div class="menu-line-variants" aria-label="Varianten und Preise">
+          ${item.options.map(option => `<div class="menu-line-variant">
+            ${option.code ? `<span class="menu-line-variant-code">${esc(option.code)}</span>` : ""}
+            <span class="menu-line-variant-name">${esc(option.label)}</span>
+            <strong>${euro(option.price)}</strong>
+          </div>`).join("")}
+        </div>` : ""}
       </article>
     `;
   }
@@ -428,7 +436,7 @@
           <label class="option-choice">
             <input type="radio" name="dishOption" value="${esc(option.id)}" ${index === 0 ? "checked" : ""}>
             ${hasOptionImages ? `<span class="option-image-slot">${option.image ? `<img src="./assets/${esc(option.image)}" alt="" loading="lazy">` : ""}</span>` : ""}
-            <span class="option-choice-name">${option.image ? `<small>${esc(item.code)}${esc(option.id.toLowerCase())}</small>` : ""}${esc(option.label)}</span>
+            <span class="option-choice-name">${option.code ? `<small>${esc(option.code)}</small>` : ""}${esc(option.label)}</span>
             <strong>${euro(option.price)}</strong>
           </label>
         `).join("")}
