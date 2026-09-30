@@ -16,10 +16,10 @@
     freeDeliveryFrom: 45
   }, window.TOKYSEN_CONFIG || {});
 
-  const STORAGE_KEY = "tokyo68-menu-cart-v2";
+  const STORAGE_KEY = "tokyo68-menu-cart-v3";
   const SITE_INTRODUCTION = [
-    "TOKYO68 in Hallstadt serviert asiatische Küche, vietnamesische Warmspeisen und Sushi frisch zubereitet.",
-    "Die Speisekarte umfasst Suppen, Salate, Nudel-, Reis- und Wokgerichte sowie Nigiri, Maki, Inside-Out Rolls, Sashimi, Desserts und Getränke.",
+    "TOKYO68 in Hallstadt serviert asiatische Küche und vietnamesische Warmspeisen frisch zubereitet.",
+    "Die aktuelle Speisekarte umfasst Suppen, Vorspeisen, Nudel-, Reis- und Wokgerichte mit verschiedenen Beilagen.",
     "Bestellen Sie direkt zur Abholung und sprechen Sie uns bei Fragen zu Zutaten, Allergenen oder individuellen Wünschen gerne an."
   ];
   const state = {
@@ -76,11 +76,39 @@
     "7": "dish-04-cutout.png",
     "20b": "dish-05-cutout.png",
     "20f": "dish-06-cutout.png",
+    "20j": "dish-07-cutout.png",
     "30a": "dish-08-cutout.png",
     "30b": "dish-09-cutout.png",
     "30d": "dish-09-cutout.png",
     "30e": "dish-10-cutout.png",
-    "30f": "dish-11-cutout.png"
+    "30f": "dish-11-cutout.png",
+    "30i": "dish-12-cutout.png",
+    "40a": "dish-13-cutout.png",
+    "40b": "dish-14-cutout.png",
+    "40d": "dish-15-cutout.png",
+    "50a": "dish-16-cutout.png",
+    "50b": "dish-17-cutout.png",
+    "50d": "dish-18-cutout.png",
+    "50e": "dish-19-cutout.png",
+    "60a": "dish-20-cutout.png",
+    "60b": "dish-21-cutout.png",
+    "60d": "dish-23-cutout.png",
+    "60g": "dish-24-cutout.png",
+    "60f": "dish-25-cutout.png",
+    "60i": "dish-26-cutout.png",
+    "70f": "dish-27-cutout.png",
+    "70e": "dish-28-cutout.png",
+    "70b": "dish-29-cutout.png",
+    "70d": "dish-31-cutout.png",
+    "85a": "dish-32-cutout.png",
+    "86a": "dish-33-cutout.png",
+    "81a": "dish-34-cutout.png",
+    "84b": "dish-35-cutout.png",
+    "85h": "dish-36-cutout.png",
+    "81h": "dish-36-cutout.png",
+    "80d": "dish-37-cutout.png",
+    "86d": "dish-40-cutout.png",
+    "84d": "dish-39-cutout.png"
   };
 
   const $ = id => document.getElementById(id);
@@ -128,9 +156,7 @@
             price: number(option.price) || 0,
             image: MENU_IMAGE_BY_CODE[`${item.code}${String(option.code || "").toLowerCase()}`] || ""
           })) : [];
-          const representativeOption = options.find(option => option.image);
-          const image = MENU_IMAGE_BY_CODE[String(item.code || "").toLowerCase()]
-            || representativeOption?.image || "";
+          const image = MENU_IMAGE_BY_CODE[String(item.code || "").toLowerCase()] || "";
           const normalized = {
             id,
             sectionId,
@@ -144,8 +170,7 @@
             portion: item.portion || category.portion || "",
             note: item.note || "",
             image,
-            imageAlt: representativeOption && !MENU_IMAGE_BY_CODE[String(item.code || "").toLowerCase()]
-              ? `${item.name} – ${representativeOption.label}` : item.name,
+            imageAlt: item.name,
             allergens: Array.isArray(item.allergens) ? item.allergens : [],
             price: number(item.price),
             options,
@@ -299,8 +324,9 @@
           </button>
         </div>
         ${item.options.length ? `<div class="menu-line-variants" aria-label="Varianten und Preise">
-          ${item.options.map(option => `<div class="menu-line-variant">
+          ${item.options.map(option => `<div class="menu-line-variant${option.image ? " has-variant-image" : ""}">
             ${option.code ? `<span class="menu-line-variant-code">${esc(option.code)}</span>` : ""}
+            ${option.image ? `<img class="menu-line-variant-image" src="./assets/${esc(option.image)}" alt="" loading="lazy">` : ""}
             <span class="menu-line-variant-name">${esc(option.label)}</span>
             <strong>${euro(option.price)}</strong>
           </div>`).join("")}
@@ -473,7 +499,7 @@
       itemId: item.id,
       name: item.name,
       code: item.code,
-      option: option ? { id: option.id, label: option.label } : null,
+      option: option ? { id: option.id, code: option.code, label: option.label } : null,
       unitPrice: unitPrice(item, option),
       quantity,
       note
@@ -520,7 +546,7 @@
         <article class="cart-item">
           <div>
             <h3>${esc(entry.name)}</h3>
-            ${entry.option ? `<p>${esc(entry.option.label)}</p>` : ""}
+            ${entry.option ? `<p>${entry.option.code ? `${esc(entry.option.code)} · ` : ""}${esc(entry.option.label)}</p>` : ""}
             ${entry.note ? `<p>Hinweis: ${esc(entry.note)}</p>` : ""}
           </div>
           <strong class="cart-item-price">${euro(entry.unitPrice * entry.quantity)}</strong>
@@ -581,7 +607,7 @@
   function renderCheckout() {
     $("checkoutItems").innerHTML = state.cart.map(entry => `
       <div class="checkout-row">
-        <span>${entry.quantity} × ${esc(entry.name)}${entry.option ? `<small style="display:block;color:#777">${esc(entry.option.label)}</small>` : ""}</span>
+        <span>${entry.quantity} × ${esc(entry.name)}${entry.option ? `<small style="display:block;color:#777">${entry.option.code ? `${esc(entry.option.code)} · ` : ""}${esc(entry.option.label)}</small>` : ""}</span>
         <strong>${euro(entry.quantity * entry.unitPrice)}</strong>
       </div>
     `).join("") || "<p>Keine Artikel.</p>";
@@ -649,7 +675,7 @@
       "",
       "ARTIKEL:",
       ...state.cart.flatMap(entry => [
-        `${entry.quantity}x ${entry.name}${entry.option ? ` - ${entry.option.label}` : ""} (${euro(entry.quantity * entry.unitPrice)})`,
+        `${entry.quantity}x ${entry.name}${entry.option ? ` - ${entry.option.code ? `${entry.option.code} · ` : ""}${entry.option.label}` : ""} (${euro(entry.quantity * entry.unitPrice)})`,
         entry.note ? `  Küchenhinweis: ${entry.note}` : ""
       ]),
       "",

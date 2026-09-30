@@ -1,4 +1,4 @@
-# TOKYSEN — Figma Layout Rebuild
+# TOKYO68 — Landing page và menu đặt món
 
 Bản này được dựng lại hoàn toàn theo nhịp bố cục của frame Figma được cung cấp,
 không kế thừa layout editorial của các bản trước.
@@ -24,16 +24,11 @@ không kế thừa layout editorial của các bản trước.
 
 ## Dữ liệu
 
-Website sử dụng toàn bộ file `Tokysen_Menu_Full.json`:
-
-- 7 nhóm lớn
-- 28 category
-- 187 món và đồ uống
-- Giá, option, dung tích, khẩu phần
-- Allergene và Zusatzstoffe
-- Ghi chú menu
-
-`menu-data.js` được tạo trực tiếp từ JSON để website chạy cả khi mở local.
+Menu đang hiển thị được chép từ hai ảnh khách gửi ngày 30/09/2026 trong
+`menu-current.js`: 2 nhóm lớn, 24 món chính và 140 lựa chọn theo chữ a–j.
+`menu-data.js` và `Tokysen_Menu_Full.json` là bản cũ, không còn là menu hiển thị.
+Không dùng thông tin dị ứng của bản cũ cho menu mới vì ảnh mới không cung cấp
+bảng dị ứng. Danh sách đối chiếu 40 ảnh nằm trong `PHOTO_MAPPING_AUDIT.md`.
 
 ## Đặt món
 
@@ -71,12 +66,9 @@ Mở `index.html` trực tiếp hoặc dùng VS Code Live Server.
 Toàn bộ ảnh trong `assets/` được xử lý từ ảnh người dùng cung cấp.
 
 
-## Bản menu không ảnh
+## Ảnh và biến thể
 
-- Bỏ hoàn toàn product card và ảnh cho từng món.
-- Menu dạng editorial hai cột trên desktop, một cột trên mobile.
-- 7 section có màu nhận diện riêng.
-- Category heading rõ ràng, đường kẻ mảnh và khoảng trắng lớn.
-- Toàn bộ 187 món được render trực tiếp, không cần nút tải thêm.
-- Tìm kiếm, chọn option, giỏ hàng và checkout vẫn giữ nguyên.
+Ảnh món được gắn theo mã trong `app.js`. Món không có biến thể hiện ảnh cạnh tên;
+món có biến thể hiện ảnh ngay cạnh mã/giá của biến thể tương ứng. Ba ảnh trùng mã
+được giữ lại trong `assets/` nhưng không hiển thị hai lần.
 "# Tokyo-68" 
