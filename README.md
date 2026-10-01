@@ -28,7 +28,7 @@ Menu đang hiển thị được chép từ hai ảnh khách gửi ngày 30/09/2
 `menu-current.js`: 2 nhóm lớn, 24 món chính và 140 lựa chọn theo chữ a–j.
 `menu-data.js` và `Tokysen_Menu_Full.json` là bản cũ, không còn là menu hiển thị.
 Không dùng thông tin dị ứng của bản cũ cho menu mới vì ảnh mới không cung cấp
-bảng dị ứng. Danh sách đối chiếu 40 ảnh nằm trong `PHOTO_MAPPING_AUDIT.md`.
+bảng dị ứng. Danh sách đối chiếu 42 ảnh mới nằm trong `PHOTO_MAPPING_AUDIT.md`.
 
 ## Đặt món
 
@@ -68,8 +68,8 @@ Toàn bộ ảnh trong `assets/` được xử lý từ ảnh người dùng cun
 
 ## Ảnh và biến thể
 
-Ảnh món trong menu đặt món dùng trực tiếp các file `dish-XX.jpg` hiển thị trong
-`PHOTO_MAPPING_AUDIT.md`, theo mã trong `app.js`. Món không có biến thể hiện ảnh cạnh tên;
-món có biến thể hiện ảnh ngay cạnh mã/giá của biến thể tương ứng. Ba ảnh trùng mã
-được giữ lại trong `assets/` nhưng không hiển thị hai lần.
+Ảnh món trong menu đặt món dùng các file `assets/menu-photos/XX.webp` từ 42 ảnh
+người dùng gửi lại, theo mã trong `app.js` và bảng `PHOTO_MAPPING_AUDIT.md`.
+Món không có biến thể hiện ảnh cạnh tên; món có biến thể hiện ảnh ngay cạnh
+mã/giá của biến thể tương ứng. Ảnh số 40 đang chờ xác nhận mã món.
 "# Tokyo-68" 

@@ -1,50 +1,50 @@
-# 40 ảnh món ăn — menu khách gửi ngày 30/09/2026
+# Đối chiếu 42 ảnh món mới — 01/10/2026
 
-Hai ảnh chụp menu mới có các món 1–10, 20/30/40/50/60/70 (lựa chọn a–j) và các loại sốt wok 80/81/83/84/85/86/87/88 (lựa chọn a–j). Gắn ảnh theo **mã người dùng đã đánh dấu**, không tự đổi mã theo suy đoán thị giác. Mỗi biến thể có ảnh riêng trong dòng giá và cửa sổ chọn món; món cha không dùng ảnh của một biến thể làm ảnh đại diện.
+Ảnh được đánh số **theo đúng thứ tự 42 ảnh người dùng gửi lại**. File hiển thị trong menu đặt món là bản WebP 640 × 640 tạo từ chính ảnh đó, lưu ở `assets/menu-photos/`. Số trên menu được gắn vào đúng biến thể; không lấy ảnh biến thể làm ảnh đại diện cho món cha.
 
-| Ảnh | Mã đánh dấu | Món trong menu mới | Kết quả |
-|---|---|---|---|
-| ![](assets/dish-01.jpg) 01 | 1 | Vietnam-Frühlingsrollen | Đã gắn |
-| ![](assets/dish-02.jpg) 02 | 2 | Mini Frühlingsrollen | Đã gắn theo mã; ảnh nhìn giống súp, cần khách xác nhận |
-| ![](assets/dish-03.jpg) 03 | 3 | Wantan gebacken | Đã gắn |
-| ![](assets/dish-04.jpg) 04 | 7 | Hühner-Garnelen-Entensuppe | Đã gắn theo mã; ảnh nhìn giống món mì, cần khách xác nhận |
-| ![](assets/dish-05.jpg) 05 | 20b | Pho Xao · Knusprige Hähnchenbrust | Đã gắn theo mã; ảnh nhìn giống chả giò, cần khách xác nhận |
-| ![](assets/dish-06.jpg) 06 | 20f | Pho Xao · Rindfleisch | Đã gắn |
-| ![](assets/dish-07.jpg) 07 | 20j | Pho Xao · Gebackener Lachs | Đã gắn theo mã; ảnh nhìn không rõ cá hồi, cần khách xác nhận |
-| ![](assets/dish-08.jpg) 08 | 30a | Mi Xao · Hühnerfleisch | Đã gắn |
-| ![](assets/dish-09.jpg) 09 | 30b30d | Mi Xao · Knusprige Hähnchenbrust / Ente | Một ảnh cho hai mã đã ghi liền |
-| ![](assets/dish-10.jpg) 10 | 30e | Mi Xao · Garnelen | Đã gắn theo mã |
-| ![](assets/dish-11.jpg) 11 | 30f | Mi Xao · Rindfleisch | Đã gắn |
-| ![](assets/dish-12.jpg) 12 | 30i | Mi Xao · Vegetarisch | Đã gắn |
-| ![](assets/dish-13.jpg) 13 | 40a | Mi Tom Xao · Hühnerfleisch | Đã gắn |
-| ![](assets/dish-14.jpg) 14 | 40b | Mi Tom Xao · Knusprige Hähnchenbrust | Đã gắn |
-| ![](assets/dish-15.jpg) 15 | 40d | Mi Tom Xao · Ente | Đã gắn |
-| ![](assets/dish-16.jpg) 16 | 50a | Com Rang · Hühnerfleisch | Đã gắn |
-| ![](assets/dish-17.jpg) 17 | 50b | Com Rang · Knusprige Hähnchenbrust | Đã gắn |
-| ![](assets/dish-18.jpg) 18 | 50d | Com Rang · Ente | Đã gắn |
-| ![](assets/dish-19.jpg) 19 | 50e | Com Rang · Garnelen | Đã gắn |
-| ![](assets/dish-20.jpg) 20 | 60a | My Xao · Hühnerfleisch | Đã gắn |
-| ![](assets/dish-21.jpg) 21 | 60b | My Xao · Knusprige Hähnchenbrust | Đã gắn; dùng ảnh này thay vì ảnh 22 trùng mã |
-| ![](assets/dish-22.jpg) 22 | 60b | My Xao · Knusprige Hähnchenbrust | Trùng mã, không gắn |
-| ![](assets/dish-23.jpg) 23 | 60d | My Xao · Ente | Đã gắn |
-| ![](assets/dish-24.jpg) 24 | 60g | My Xao · Schweinefleisch | Đã gắn |
-| ![](assets/dish-25.jpg) 25 | 60f | My Xao · Rindfleisch | Đã gắn |
-| ![](assets/dish-26.jpg) 26 | 60i | My Xao · Vegetarisch | Đã gắn |
-| ![](assets/dish-27.jpg) 27 | 70f | Udon · Rindfleisch | Đã gắn |
-| ![](assets/dish-28.jpg) 28 | 70e | Udon · Garnelen | Đã gắn |
-| ![](assets/dish-29.jpg) 29 | 70b | Udon · Knusprige Hähnchenbrust | Đã gắn; dùng ảnh này thay vì ảnh 30 trùng mã |
-| ![](assets/dish-30.jpg) 30 | 70b | Udon · Knusprige Hähnchenbrust | Trùng mã, không gắn |
-| ![](assets/dish-31.jpg) 31 | 70d | Udon · Ente | Đã gắn |
-| ![](assets/dish-32.jpg) 32 | 85a | Gelb-Curry · Hühnerfleisch | Đã gắn |
-| ![](assets/dish-33.jpg) 33 | 86a | Rot-Curry · Hühnerfleisch | Đã gắn |
-| ![](assets/dish-34.jpg) 34 | 81a | Erdnuss-Sauce · Hühnerfleisch | Đã gắn |
-| ![](assets/dish-35.jpg) 35 | 84b | Hoisin-Sauce · Knusprige Hähnchenbrust | Đã gắn |
-| ![](assets/dish-36.jpg) 36 | 85h81h | Gelb-Curry / Erdnuss-Sauce · Tofu | Một ảnh cho hai mã đã ghi liền |
-| ![](assets/dish-37.jpg) 37 | 80d | Mango-Sauce · Ente | Đã gắn |
-| ![](assets/dish-38.jpg) 38 | 86d | Rot-Curry · Ente | Trùng mã, không gắn; ảnh 40 nhìn giống cà-ri đỏ hơn |
-| ![](assets/dish-39.jpg) 39 | 84d | Hoisin-Sauce · Ente | Đã gắn |
-| ![](assets/dish-40.jpg) 40 | 86d | Rot-Curry · Ente | Đã gắn; chọn ảnh này cho mã trùng |
+| Ảnh mới | Mã menu | Món / biến thể |
+|---|---|---|
+| ![](assets/menu-photos/01.webp) 01 | 1 | Vietnam-Frühlingsrollen |
+| ![](assets/menu-photos/02.webp) 02 | 2 | Mini Frühlingsrollen |
+| ![](assets/menu-photos/03.webp) 03 | 3 | Wantan gebacken |
+| ![](assets/menu-photos/04.webp) 04 | 7 | Hühner-Garnelen-Entensuppe |
+| ![](assets/menu-photos/05.webp) 05 | 20b | Pho Xao · Knusprige Hähnchenbrust |
+| ![](assets/menu-photos/06.webp) 06 | 20f | Pho Xao · Rindfleisch |
+| ![](assets/menu-photos/07.webp) 07 | 20j | Pho Xao · Gebackener Lachs |
+| ![](assets/menu-photos/08.webp) 08 | 30a | Mi Xao · Hühnerfleisch |
+| ![](assets/menu-photos/09.webp) 09 | 30b | Mi Xao · Knusprige Hähnchenbrust |
+| ![](assets/menu-photos/10.webp) 10 | 30d | Mi Xao · Ente |
+| ![](assets/menu-photos/11.webp) 11 | 30e | Mi Xao · Garnelen |
+| ![](assets/menu-photos/12.webp) 12 | 30f | Mi Xao · Rindfleisch |
+| ![](assets/menu-photos/13.webp) 13 | 30i | Mi Xao · Vegetarisch |
+| ![](assets/menu-photos/14.webp) 14 | 40a | Mi Tom Xao · Hühnerfleisch |
+| ![](assets/menu-photos/15.webp) 15 | 40b | Mi Tom Xao · Knusprige Hähnchenbrust |
+| ![](assets/menu-photos/16.webp) 16 | 40d | Mi Tom Xao · Ente |
+| ![](assets/menu-photos/17.webp) 17 | 50a | Com Rang · Hühnerfleisch |
+| ![](assets/menu-photos/18.webp) 18 | 50b | Com Rang · Knusprige Hähnchenbrust |
+| ![](assets/menu-photos/19.webp) 19 | 50d | Com Rang · Ente |
+| ![](assets/menu-photos/20.webp) 20 | 50e | Com Rang · Garnelen |
+| ![](assets/menu-photos/21.webp) 21 | 60a | My Xao · Hühnerfleisch |
+| ![](assets/menu-photos/22.webp) 22 | 60b | My Xao · Knusprige Hähnchenbrust |
+| ![](assets/menu-photos/23.webp) 23 | 60c | My Xao · Knuspriger Hähnchenschenkel |
+| ![](assets/menu-photos/24.webp) 24 | 60d | My Xao · Ente |
+| ![](assets/menu-photos/25.webp) 25 | 60f | My Xao · Rindfleisch |
+| ![](assets/menu-photos/26.webp) 26 | 60g | My Xao · Schweinefleisch |
+| ![](assets/menu-photos/27.webp) 27 | 60i | My Xao · Vegetarisch |
+| ![](assets/menu-photos/28.webp) 28 | 70f | Udon · Rindfleisch |
+| ![](assets/menu-photos/29.webp) 29 | 70e | Udon · Garnelen |
+| ![](assets/menu-photos/30.webp) 30 | 70b | Udon · Knusprige Hähnchenbrust |
+| ![](assets/menu-photos/31.webp) 31 | 70c | Udon · Knuspriger Hähnchenschenkel |
+| ![](assets/menu-photos/32.webp) 32 | 70d | Udon · Ente |
+| ![](assets/menu-photos/33.webp) 33 | 85a | Gelb-Curry · Hühnerfleisch |
+| ![](assets/menu-photos/34.webp) 34 | 86a | Rot-Curry · Hühnerfleisch |
+| ![](assets/menu-photos/35.webp) 35 | 81a | Erdnuss-Sauce · Hühnerfleisch |
+| ![](assets/menu-photos/36.webp) 36 | 84b | Hoisin-Sauce · Knusprige Hähnchenbrust |
+| ![](assets/menu-photos/37.webp) 37 | 85h | Gelb-Curry · Tofu |
+| ![](assets/menu-photos/38.webp) 38 | 81h | Erdnuss-Sauce · Tofu |
+| ![](assets/menu-photos/39.webp) 39 | 80d | Mango-Sauce · Ente |
+| ![](assets/menu-photos/40.webp) 40 | Cần xác nhận | Ảnh vịt với sốt màu đỏ cam; chưa gắn vào menu |
+| ![](assets/menu-photos/41.webp) 41 | 84d | Hoisin-Sauce · Ente |
+| ![](assets/menu-photos/42.webp) 42 | 86d (tạm theo mapping cũ) | Rot-Curry · Ente |
 
-**Tổng:** 39 vị trí ảnh trên web, dùng 37 ảnh khác nhau. Ba ảnh 22/30/38 không gắn vì trùng mã. Mã 30b30d và 85h81h được hiểu là một ảnh dùng ở hai vị trí. Các ảnh 02/04/05/07 có dấu hiệu không khớp tên món theo mắt nhìn, nhưng vẫn giữ đúng mã người dùng cung cấp để khách kiểm tra.
-
-**Đọc chữ mờ:** 3 được hiểu là “Wantan gebacken” (món chiên, thay vì “gehacken”); giá 30c/40c/60c và các nhóm tương tự đọc là 10,00 € theo dòng 20c và bảng giá lặp lại; món 8 giữ nguyên danh sách Huhn/Garnelen/Ente mà chưa tự tạo các biến thể mới.
+**Còn một điểm chờ xác nhận:** ảnh 40 và 42 đều có món vịt với sốt màu đỏ cam. Mapping cũ dùng ảnh cuối cho `86d`; hiện giữ ảnh 42 ở `86d` và chưa gắn ảnh 40. Các mã `60c` và `70c` trước đây thiếu ảnh, nay có ảnh riêng số 23 và 31.
