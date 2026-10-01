@@ -68,7 +68,8 @@ Toàn bộ ảnh trong `assets/` được xử lý từ ảnh người dùng cun
 
 ## Ảnh và biến thể
 
-Ảnh món được gắn theo mã trong `app.js`. Món không có biến thể hiện ảnh cạnh tên;
+Ảnh món trong menu đặt món dùng trực tiếp các file `dish-XX.jpg` hiển thị trong
+`PHOTO_MAPPING_AUDIT.md`, theo mã trong `app.js`. Món không có biến thể hiện ảnh cạnh tên;
 món có biến thể hiện ảnh ngay cạnh mã/giá của biến thể tương ứng. Ba ảnh trùng mã
 được giữ lại trong `assets/` nhưng không hiển thị hai lần.
 "# Tokyo-68" 
