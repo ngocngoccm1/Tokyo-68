@@ -211,10 +211,10 @@
       "sushi": "SUSHI.webp",
       "beilagen": "fruit-mosaic.webp",
       "desserts": "fruit-platter.webp",
-      "alkoholfreie-getraenke": "juice-line.webp",
+      "alkoholfreie-getraenke": "juice-selection-20261013.jpg",
       "alkoholische-getraenke": "ALKOHOLISCHE GETRÄNKE.webp"
     };
-    return map[sectionId] || ["fruit-cups.webp", "juice-line.webp", "fruit-art.webp"][index % 3];
+    return map[sectionId] || ["fruit-cups.webp", "juice-selection-20261013.jpg", "fruit-art.webp"][index % 3];
   }
 
   function renderCategories() {

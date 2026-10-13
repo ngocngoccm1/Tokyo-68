@@ -85,10 +85,11 @@ button,a{-webkit-tap-highlight-color:transparent}
 .hero-facts span{max-width:82px;color:var(--muted);font-size:11px;line-height:1.35}
 .hero-collage{position:relative;min-height:500px}
 .hero-main-photo{position:absolute;inset:15px 0 70px 12%;margin:0;border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}
-.hero-main-photo img{object-position:55% center}
+.hero-main-photo img{object-position:right center}
 .hero-small-photo{position:absolute;margin:0;overflow:hidden;border:8px solid var(--cream);box-shadow:var(--shadow)}
 .hero-small-photo--cups{left:0;bottom:0;width:44%;height:245px;border-radius:16px}
 .hero-small-photo--juice{right:-8%;top:0;width:42%;height:210px;border-radius:50% 50% 14px 14px}
+.hero-small-photo--juice img,.category-card img[src$="juice-selection-20261013.jpg"],.combo-image img[src$="juice-selection-20261013.jpg"]{object-fit:contain;background:#fff}
 .hero-small-photo figcaption{position:absolute;left:12px;bottom:12px;background:var(--yellow);padding:7px 10px;font:600 10px var(--heading);text-transform:uppercase}
 .hero-sticker{position:absolute;right:5%;bottom:12%;width:125px;height:125px;border-radius:50%;display:grid;place-items:center;text-align:center;background:var(--red);color:#fff;font:600 14px/1.35 var(--heading);text-transform:uppercase;transform:rotate(8deg)}
 
@@ -459,6 +460,9 @@ dialog>p{color:var(--muted);font-size:12px;line-height:1.7}
   .category-card:hover,.dish-card:hover{transform:translateY(-7px);box-shadow:var(--shadow)}
   .desktop-nav a:hover{color:var(--green)}
   footer a:hover{color:var(--yellow)}
+}
+@media(max-width:849px){
+  .hero-small-photo--juice{right:0}
 }
 @media(max-width:430px){
   .hero h1{font-size:72px}
