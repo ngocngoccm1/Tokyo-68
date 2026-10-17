@@ -24,8 +24,14 @@ không kế thừa layout editorial của các bản trước.
 
 ## Dữ liệu
 
-Menu đang hiển thị được chép từ hai ảnh khách gửi ngày 30/09/2026 trong
-`menu-current.js`: 2 nhóm lớn, 24 món chính và 140 lựa chọn theo chữ a–j.
+Menu đang hiển thị trong `menu-current.js`: 3 nhóm lớn, 86 món và
+140 lựa chọn theo chữ a–j cho các món nóng. Phần món nóng gồm 24 món,
+chép từ hai ảnh khách gửi ngày 30/09/2026. Phần sushi gồm 62 món,
+chép từ ảnh khách gửi ngày 17/10/2026: Nigiri, Maki, Crispy Maki, Sashimi,
+hai nhóm Uramaki, Special Roll, Crispy Rolls, Sushi Sandwich và Menü Sushi.
+Giữ mã M1/M2 trùng nhau giữa Uramaki và combo như ảnh gốc; mỗi món có ID
+riêng theo nhóm để tìm kiếm và giỏ hàng phân biệt chính xác.
+Tên S4 “Vegan” và thành phần Frischkäse giữ theo ảnh gốc, không gắn nhãn VEGAN.
 `menu-data.js` và `Tokysen_Menu_Full.json` là bản cũ, không còn là menu hiển thị.
 Không dùng thông tin dị ứng của bản cũ cho menu mới vì ảnh mới không cung cấp
 bảng dị ứng. Danh sách đối chiếu ảnh nằm trong `PHOTO_MAPPING_AUDIT.md`.

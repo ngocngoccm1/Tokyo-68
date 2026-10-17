@@ -19,7 +19,7 @@
   const STORAGE_KEY = "tokyo68-menu-cart-v3";
   const SITE_INTRODUCTION = [
     "TOKYO68 in Hallstadt serviert asiatische Küche und vietnamesische Warmspeisen frisch zubereitet.",
-    "Die aktuelle Speisekarte umfasst Suppen, Vorspeisen, Nudel-, Reis- und Wokgerichte mit verschiedenen Beilagen.",
+    "Die aktuelle Speisekarte umfasst Suppen, Vorspeisen, Nudel-, Reis- und Wokgerichte sowie Sushi mit Nigiri, Maki, Uramaki, Sashimi und Sushi-Menüs.",
     "Bestellen Sie direkt zur Abholung und sprechen Sie uns bei Fragen zu Zutaten, Allergenen oder individuellen Wünschen gerne an."
   ];
   const state = {
@@ -45,8 +45,8 @@
     },
     "sushi": {
       index: "03",
-      eyebrow: "20+ Jahre Handwerk",
-      description: "Nigiri, Maki, Inside-Out, Spezial Rolls, Sashimi und Sets."
+      eyebrow: "Japanische Spezialitäten",
+      description: "Nigiri, Maki, Uramaki, Sashimi, Special Rolls, Crispy Rolls, Sushi Sandwiches und Menüs."
     },
     "beilagen": {
       index: "04",
@@ -292,7 +292,7 @@
   function itemBadge(item) {
     const haystack = `${item.name} ${item.description} ${item.note}`.toLocaleLowerCase("de-DE");
     if (haystack.includes("tokysen")) return "TOKYSEN EMPFIEHLT";
-    if (haystack.includes("vegan")) return "VEGAN";
+    if (haystack.includes("vegan") && !haystack.includes("frischkäse")) return "VEGAN";
     if (haystack.includes("vegetar")) return "VEGETARISCH";
     if (haystack.includes("scharf") || haystack.includes("chili")) return "SCHARF";
     return "";
